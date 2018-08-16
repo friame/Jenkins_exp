@@ -5,9 +5,11 @@
  pipeline {
     agent any
 
-    stage ('Checkout') {
-                  checkout scm
-           }
+   node ('jenkins-pipeline') {
+
+       def pwd = pwd()
+       checkout scm
+
     stages {
         stage ('Compile Stage') {
 
@@ -36,3 +38,4 @@
         }
     }
  }
+}
