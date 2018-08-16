@@ -1,20 +1,40 @@
 pipeline {
-    agent {
-        // Define agent details here
-    }
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-    }
+    agent none
     stages {
-        stage('Example stage 1') {
+        stage('Build') {
+            agent any
             steps {
-                //
+                checkout scm
+                sh 'make'
+                stash includes: '**/target/*.jar', name: 'app'
             }
         }
-        stage('Example stage 2') {
+        stage('Test on Linux') {
+            agent {
+                label 'linux'
+            }
             steps {
-                //
+                unstash 'app'
+                sh 'make check'
+            }
+            post {
+                always {
+                    junit '**/target/*.xml'
+                }
+            }
+        }
+        stage('Test on ') {
+            agent {
+                label 'windows'
+            }
+            steps {
+                unstash 'app'
+                bat 'make check'
+            }
+            post {
+                always {
+                    junit '**/target/*.xml'
+                }
             }
         }
     }
