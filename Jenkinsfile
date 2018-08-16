@@ -7,6 +7,7 @@
 
     stage ('Checkout') {
                   checkout scm
+           }
     stages {
         stage ('Compile Stage') {
 
