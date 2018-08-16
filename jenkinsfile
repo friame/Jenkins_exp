@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    node ('jenkins-pipeline') {
+
+            checkout scm
+
     stages {
         stage ('Compile Stage') {
 
@@ -28,4 +32,5 @@ pipeline {
             }
         }
     }
-}
+  }
+ }
