@@ -1,13 +1,9 @@
 pipeline {
     agent any
 
-    node ('jenkins-pipeline') {
-
-            checkout scm
-
     stage ('Checkout') {
                   checkout scm
-                  // def pipeline = load 'pipeline.groovy'
+
                 }
 
     stages {
@@ -37,5 +33,4 @@ pipeline {
             }
         }
     }
-  }
  }
