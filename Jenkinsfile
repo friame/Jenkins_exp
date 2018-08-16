@@ -1,31 +1,41 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
-        stage ('Compile Stage') {
-
+        stage('Build') {
+            agent any
             steps {
-                withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn clean compile'
+                checkout scm
+                sh 'make'
+                stash includes: '**/target/*.jar', name: 'app'
+            }
+        }
+        stage('Test on Linux') {
+            agent {
+                label 'linux'
+            }
+            steps {
+                unstash 'app'
+                sh 'make check'
+            }
+            post {
+                always {
+                    junit '**/target/*.xml'
                 }
             }
         }
-
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn test'
-                }
+        stage('Test on Windows') {
+            agent {
+                label 'windows'
             }
-        }
-
-
-        stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn deploy'
+                unstash 'app'
+                bat 'make check'
+            }
+            post {
+                always {
+                    junit '**/target/*.xml'
                 }
             }
         }
     }
+}
