@@ -5,6 +5,11 @@ pipeline {
 
             checkout scm
 
+    stage ('Checkout') {
+                  checkout scm
+                  // def pipeline = load 'pipeline.groovy'
+                }
+
     stages {
         stage ('Compile Stage') {
 
