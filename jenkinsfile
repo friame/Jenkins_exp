@@ -1,56 +1,36 @@
-#!groovy
-
 pipeline {
-  agent any
+    agent any
 
-  options {
-    // Only keep the 10 most recent builds
-    buildDiscarder(logRotator(numToKeepStr:'10'))
-  }
-  stages {
-    stage ('Install') {
-      steps {
-        // install required bundles
-        sh 'bundle install'
-      }
-    }
-    stage ('Build') {
-      steps {
-        // build
-        sh 'bundle exec rake build'
-      }
+    node ('jenkins-pipeline') {
 
-      post {
-        success {
-          // Archive the built artifacts
-          archive includes: 'pkg/*.gem'
+            checkout scm
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven.3') {
+                    sh 'mvn clean compile'
+                }
+            }
         }
-      }
-    }
-    stage ('Test') {
-      step {
-        // run tests with coverage
-        sh 'bundle exec rake spec'
-      }
 
-      post {
-        success {
-          // publish html
-          publishHTML target: [
-              allowMissing: false,
-              alwaysLinkToLastBuild: false,
-              keepAll: true,
-              reportDir: 'coverage',
-              reportFiles: 'index.html',
-              reportName: 'RCov Report'
-            ]
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'maven.3') {
+                    sh 'mvn test'
+                }
+            }
         }
-      }
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven.3') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
     }
   }
-  post {
-    always {
-      echo "Send notifications for result: ${currentBuild.result}"
-    }
-  }
-}
+ }
