@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bc66c4f-0045-4402-a763-c07007c87b89" name="Default Changelist" comment="add jenkins file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +38,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Jenkinsfile" value="67" />
+          <entry key="Jenkinsfile" value="80" />
           <entry key="Readme" value="26" />
           <entry key="jenkinsfile" value="49" />
           <entry key="txt" value="28" />
@@ -47,7 +46,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Jenkins file" value="67" />
+          <entry key="Jenkins file" value="80" />
           <entry key="PLAIN_TEXT" value="103" />
         </counts>
       </usages-collector>
@@ -67,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -128,7 +127,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534454334480" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534455609442" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -161,7 +160,7 @@
       <workItem from="1534356618164" duration="3445000" />
       <workItem from="1534360381152" duration="3477000" />
       <workItem from="1534367033891" duration="7934000" />
-      <workItem from="1534452500465" duration="1878000" />
+      <workItem from="1534452500465" duration="2922000" />
     </task>
     <task id="LOCAL-00001" summary="add jenkins file">
       <created>1534356927379</created>
@@ -380,11 +379,46 @@
       <option name="project" value="LOCAL" />
       <updated>1534454322904</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add jenkins file">
+      <created>1534454501065</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1534454501065</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add jenkins file">
+      <created>1534454605344</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1534454605344</updated>
+    </task>
+    <task id="LOCAL-00034" summary="add jenkins file">
+      <created>1534454962992</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1534454962992</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add jenkins file">
+      <created>1534455398233</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1534455398233</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add jenkins file">
+      <created>1534455501210</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1534455501210</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16734000" />
+    <option name="totallyTimeSpent" value="17778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="777" extended-state="0" />
@@ -480,8 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
