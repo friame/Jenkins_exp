@@ -1,41 +1,41 @@
-pipeline {
-    agent none
+#!/usr/bin/groovy
+
+// Jenkins pipeline file
+
+ pipeline {
+    agent any
+
+   node ('jenkins-pipeline') {
+
+       def pwd = pwd()
+       checkout scm
+
     stages {
-        stage('Build') {
-            agent any
+        stage ('Compile Stage') {
+
             steps {
-                checkout scm
-                sh 'make'
-                stash includes: '**/target/*.jar', name: 'app'
-            }
-        }
-        stage('Test on Linux') {
-            agent {
-                label 'linux'
-            }
-            steps {
-                unstash 'app'
-                sh 'make check'
-            }
-            post {
-                always {
-                    junit '**/target/*.xml'
+                withMaven(maven : 'maven_3_5_4') {
+                    sh 'mvn clean compile'
                 }
             }
         }
-        stage('Test on Windows') {
-            agent {
-                label 'windows'
-            }
+
+        stage ('Testing Stage') {
+
             steps {
-                unstash 'app'
-                bat 'make check'
+                withMaven(maven : 'maven_3_5_4') {
+                    sh 'mvn test'
+                }
             }
-            post {
-                always {
-                    junit '**/target/*.xml'
+        }
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_4') {
+                    sh 'mvn deploy'
                 }
             }
         }
     }
+ }
 }
