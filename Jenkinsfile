@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage ('Compile Stage') {
-
+           checkout scm
             steps {
                 withMaven(maven : 'maven_3_5_4') {
                     sh 'mvn clean compile'
@@ -12,7 +12,7 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-
+            checkout scm
             steps {
                 withMaven(maven : 'maven_3_5_4') {
                     sh 'mvn test'
