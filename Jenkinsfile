@@ -23,7 +23,11 @@ pipeline {
                 }
             }
         }
+<<<<<<< HEAD
         stage('Test on ') {
+=======
+        stage('Test on Windows') {
+>>>>>>> remotes/origin/dev
             agent {
                 label 'windows'
             }
